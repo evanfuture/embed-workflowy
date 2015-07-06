@@ -1,0 +1,21 @@
+{
+  "name": "evanfuture/embed-workflowy",
+  "type": "wordpress-plugin",
+  "license": "MIT",
+  "description": "A simple plugin to embed your Workflowy list in the Wordpress Admin.",
+  "homepage": "https://evanpayne.com/embed-workflowy/",
+  "authors": [
+    {
+      "name": "Evan Payne",
+      "email": "evan@evanpayne.com",
+      "homepage": "https://github.com/evanfuture"
+    }
+  ],
+  "keywords": [
+    "wordpress"
+  ],
+  "require": {
+    "php": ">=5.4.0",
+    "composer/installers": "~1.0"
+  }
+}

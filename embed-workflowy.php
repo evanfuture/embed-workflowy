@@ -3,7 +3,7 @@
  * Plugin Name: Embed Workflowy
  * Plugin URI: http://evanpayne.com/embed-workflowy
  * Description: A simple plugin to embed your Workflowy list in the Wordpress Admin.
- * Version: 1.0
+ * Version: 1.0.1
  * Author: Evan Payne
  * Author URI: http://evanpayne.com
  * License: GPL2
@@ -35,10 +35,10 @@ class EmbedWorkflowySettings
     {
         // This page will be under "Settings"
         add_options_page(
-            'Embed Workflowy Settings', 
-            'Embed Workflowy', 
-            'manage_options', 
-            'embed-workflowy-settings', 
+            'Embed Workflowy Settings',
+            'Embed Workflowy',
+            'manage_options',
+            'embed-workflowy-settings',
             array( $this, 'create_admin_page' )
         );
     }
@@ -53,13 +53,13 @@ class EmbedWorkflowySettings
         ?>
         <div class="wrap">
             <?php screen_icon(); ?>
-            <h2>Embed Workflowy Settings</h2>           
+            <h2>Embed Workflowy Settings</h2>
             <form method="post" action="options.php">
             <?php
                 // This prints out all hidden setting fields
-                settings_fields( 'workflowy_option_group' );   
+                settings_fields( 'workflowy_option_group' );
                 do_settings_sections( 'embed-workflowy-settings' );
-                submit_button(); 
+                submit_button();
             ?>
             </form>
         </div>
@@ -70,7 +70,7 @@ class EmbedWorkflowySettings
      * Register and add settings
      */
     public function page_init()
-    {        
+    {
         register_setting(
             'workflowy_option_group', // Option group
             'workflowy_id', // Option name
@@ -82,16 +82,16 @@ class EmbedWorkflowySettings
             'Custom Settings', // Title
             array( $this, 'print_section_info' ), // Callback
             'embed-workflowy-settings' // Page
-        );  
+        );
 
         add_settings_field(
             'id_number', // ID
-            'ID Number', // Title 
+            'ID Number', // Title
             array( $this, 'id_number_callback' ), // Callback
             'embed-workflowy-settings', // Page
-            'setting_section_id' // Section           
-        );      
-     
+            'setting_section_id' // Section
+        );
+
     }
 
     /**
@@ -109,7 +109,7 @@ class EmbedWorkflowySettings
         return $new_input;
     }
 
-    /** 
+    /**
      * Print the Section text
      */
     public function print_section_info()
@@ -117,7 +117,7 @@ class EmbedWorkflowySettings
         print 'Enter your settings below:';
     }
 
-    /** 
+    /**
      * Get the settings option array and print one of its values
      */
     public function id_number_callback()
@@ -141,7 +141,7 @@ Enable Embed Worflowy Page in Dashboard
 
 function register_workflowy_pages() {
     add_submenu_page( 'index.php', 'Workflowy', 'Workflowy', 'manage_options', 'workflowy', 'workflowy_callback' );
-} 
+}
 
 function workflowy_callback() {
   $workflowy_array = get_option( 'workflowy_id' );
